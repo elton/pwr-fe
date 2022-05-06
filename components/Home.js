@@ -13,8 +13,12 @@ const Home = ({ headline }) => {
           </ul>
         </div>
         <div className='ml-16 text-pwr-darkblack'>
-          <div></div>
-          <div className='mb-4 text-5xl font-semibold'>{headline.title}</div>
+          <div className='mb-4 flex items-center space-x-2 text-xs text-pwr-textgray'>
+            <div className='h-1 w-1 rounded-full bg-pwr-red'></div>
+            <div>Backend</div>
+            <div className='rounded-md bg-pwr-lightgray px-2'>Golang</div>
+          </div>
+          <h1 className='mb-4 text-5xl font-semibold'>{headline.title}</h1>
           <div className='relative mb-2 h-64 overflow-hidden'>
             <Image
               src={headline.image}
