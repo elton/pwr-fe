@@ -1,7 +1,8 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const Index = () => {
-  return <div className='text-3xl text-orange-800'>Hello!</div>;
+  return <Header />;
 };
 
 export default Index;
