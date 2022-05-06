@@ -23,15 +23,8 @@ export async function getStaticProps() {
 
   const unsplash = await fetch(
     'https://api.unsplash.com/photos/random?client_id=FqvDw3sA6HBgIOOF-F5AQTKsRFr5Rb7BoqjHdHm32rw'
-  ).then((res) => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return {};
-    }
-  });
+  ).then((res) => res.status === 200 && res.json());
 
-  // const unsplash = await res.json();
   // console.log(
   //   'unsplash: url:%s, firstname:%s lastname:%s, alt:%s',
   //   unsplash.urls.regular,
