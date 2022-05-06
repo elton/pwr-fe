@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Avatar } from '../common';
 
 const Home = ({ headline }) => {
   return (
@@ -22,8 +23,6 @@ const Home = ({ headline }) => {
           <div className='relative mb-2 h-64 overflow-hidden'>
             <Image
               src={headline.image}
-              width={headline.width}
-              height={headline.height}
               priority={true}
               alt={headline.description || ''}
               layout='fill'
@@ -41,19 +40,12 @@ const Home = ({ headline }) => {
               Unsplash
             </a>
           </div>
-          <div className='mb-4 text-sm'>{headline.subtitle}</div>
-          <div className='flex items-center space-x-2 text-sm text-pwr-textgray'>
-            <div className='relative h-8 w-8 overflow-hidden rounded-full border-2 border-pwr-purple'>
-              <Image
-                src={headline.avator}
-                width={64}
-                height={64}
-                alt={headline.avator}
-              />
-            </div>
-            <div>{headline.author}</div>
-            <div>{headline.date}</div>
-          </div>
+          <div className='mb-4 text-sm text-pwr-black'>{headline.subtitle}</div>
+          <Avatar
+            avatar={headline.avatar}
+            author={headline.author}
+            date={headline.date}
+          />
         </div>
       </div>
 

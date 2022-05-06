@@ -42,7 +42,7 @@ export async function getStaticProps() {
     subtitle: faker.lorem.sentence(faker.random.numeric(2)),
     author: unsplash.user.first_name + ' ' + (unsplash.user.last_name || ''),
     date: faker.date.past().toDateString().slice(4),
-    avator: unsplash.user.profile_image.medium,
+    avatar: unsplash.user.profile_image.medium,
   };
   console.log('headline', headline);
   return {
