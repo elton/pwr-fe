@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run clean && NODE_OPTIONS='--inspect' next dev",
+    "build": "npm run clean && next build",
     "start": "next start",
+    "clean": "npx rimraf .next",
     "lint": "next lint"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "react-icons": "^4.3.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^6.3.1",
     "autoprefixer": "^10.4.7",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",

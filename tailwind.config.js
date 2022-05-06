@@ -20,6 +20,10 @@ module.exports = {
         'pwr-white': '#F8F6F0',
         'pwr-textgray': '#797979',
       },
+
+      fontFamily: {
+        Pathway: ['Pathway Gothic One', 'sans-serif'],
+      },
     },
   },
   plugins: [],

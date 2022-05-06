@@ -14,6 +14,7 @@ const Header = () => {
       <Head>
         <title>PWR - Power Ink 能量墨水</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link rel='icon' href='/favicon.ico' />
         <meta
           name='description'
           content='PWR - Power Ink 能量墨水, Provide photography, PC and mobile UI design, web application, WeChat MiniApp, APP development and other professional services. 提供摄影、PC和移动端UI设计、web应用、小程序、APP的开发等专业服务。'
@@ -23,8 +24,8 @@ const Header = () => {
           content='PWR, Power Ink, 能量墨水, Photography, 摄影, UI Design, UI设计, Web App Development, web应用开发, 小程序开发, App开发'
         />
       </Head>
-      <header className='fixed inset-x-0 top-0 flex items-center shadow lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
-        <div className='z-20 mx-auto flex w-full items-center justify-between bg-white py-3 px-5 lg:justify-start lg:p-0'>
+      <header className='fixed inset-x-0 top-0 flex items-center bg-white/90 shadow backdrop-blur-md lg:z-10 lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
+        <div className='z-20 mx-auto flex w-full items-center justify-between  py-3 px-5 lg:justify-start lg:p-0'>
           <div className='h-4 w-36 lg:h-8 lg:w-60'>
             <Image
               loader={myLoader}
@@ -49,8 +50,10 @@ const Header = () => {
           className={`absolute top-0 right-0 z-10 lg:relative lg:mt-0 lg:block lg:translate-y-0 lg:pr-12`}>
           <ul
             className={`${
-              isOpen ? 'mt-12 lg:mt-0' : '-translate-y-full ease-in-out'
-            } translate-x-0 space-y-1 rounded-bl-md bg-white py-3 px-2 text-sm font-semibold text-pwr-black shadow transition-all duration-500 lg:flex lg:translate-y-0 lg:space-y-0 lg:space-x-10 lg:rounded-none lg:px-0 lg:py-0 lg:uppercase lg:shadow-none`}>
+              isOpen
+                ? 'mt-12 lg:mt-0'
+                : '-translate-y-full shadow-none ease-in-out'
+            } translate-x-0 space-y-1 rounded-bl-md bg-white py-3 px-2 text-sm font-semibold text-pwr-black shadow transition-all duration-500 lg:flex lg:translate-y-0 lg:space-y-0 lg:space-x-10 lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:uppercase lg:shadow-none`}>
             <li className='border-b-2 border-transparent px-4 py-1 transition-all duration-500 hover:border-pwr-green hover:text-pwr-green lg:px-0'>
               <Link href='/'>
                 <a>Photography</a>
