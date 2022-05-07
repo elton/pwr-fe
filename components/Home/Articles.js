@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowSmRight } from 'react-icons/hi';
-import { Avatar } from '../common';
+import { Avatar, ReadMore } from '../common';
 
 const Articles = ({ articles }) => {
   return (
@@ -20,8 +20,15 @@ const Articles = ({ articles }) => {
         {articles.map((article) => (
           <div key={article.id} className='lg:flex lg:justify-between'>
             <div className='space-y-3 lg:w-4/5 lg:pr-12'>
-              <div className='text-2xl text-pwr-black'>{article.title}</div>
-              <div className='text-pwr-lightbrown'>{article.subtitle}</div>
+              <div className='text-2xl text-pwr-black hover:text-pwr-green hover:underline'>
+                <Link href='/detail'>
+                  <a>{article.title}</a>
+                </Link>
+              </div>
+              <div className='text-pwr-lightbrown'>
+                {article.subtitle}
+                <ReadMore url='/detail' />
+              </div>
 
               <Avatar
                 avatar={article.avatar}

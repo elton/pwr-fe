@@ -18,6 +18,7 @@ export async function getStaticProps() {
     url: unsplash?.links?.html || null,
     width: 1080,
     height: (unsplash?.height * 1080) / unsplash?.width,
+    description: unsplash?.description || null,
     subtitle: faker.lorem.sentence(faker.random.numeric(2)),
     author:
       unsplash?.user?.first_name + ' ' + (unsplash?.user?.last_name || ''),

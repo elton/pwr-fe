@@ -27,13 +27,17 @@ const Header = () => {
       <header className='fixed inset-x-0 top-0 flex items-center bg-white/90 px-8 shadow backdrop-blur-md lg:z-10 lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
         <div className='z-20 mx-auto flex w-full items-center justify-between  py-3 lg:justify-start lg:p-0'>
           <div className='h-4 w-36 lg:h-8 lg:w-60'>
-            <Image
-              loader={myLoader}
-              src='logo.svg'
-              alt='pwr.ink | 能量墨水'
-              width={243}
-              height={31}
-            />
+            <Link href='/'>
+              <a>
+                <Image
+                  loader={myLoader}
+                  src='logo.svg'
+                  alt='pwr.ink | 能量墨水'
+                  width={243}
+                  height={31}
+                />
+              </a>
+            </Link>
           </div>
           <button
             onClick={toggleMenu}

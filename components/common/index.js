@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { HiArrowSmRight } from 'react-icons/hi';
 
 export const Avatar = ({ avatar, author, date }) => {
   return (
@@ -15,16 +17,26 @@ export const Avatar = ({ avatar, author, date }) => {
 
 export const Topics = ({ topics }) => (
   <>
-    <div className='text-xl font-semibold text-pwr-black'>Most Topics</div>
+    <div className='text-lg font-semibold text-pwr-black'>Most Topics</div>
     <div className='flex flex-wrap text-sm'>
       {topics.map((topic) => (
         <div
           key={topic.id}
-          className='mt-3 mr-3 space-x-2 rounded-lg bg-pwr-lightgray px-3 py-1 text-pwr-textgray'>
+          className='mb-3 mr-3 rounded-lg bg-pwr-lightgray px-3 py-1 text-pwr-textgray'>
           <span>{topic.name}</span>
           <span className='text-xs text-pwr-green/60'>({topic.count})</span>
         </div>
       ))}
     </div>
   </>
+);
+
+export const ReadMore = ({ url }) => (
+  <Link href={url}>
+    <a>
+      <span className='mt-2 flex items-center space-x-1 text-xs text-pwr-green'>
+        <span>Read more</span> <HiArrowSmRight />
+      </span>
+    </a>
+  </Link>
 );

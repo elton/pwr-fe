@@ -10,7 +10,7 @@ const Home = ({ headline, articles, topics }) => {
         <Articles articles={articles} />
       </section>
 
-      <aside className='hidden space-y-3 border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pt-16 lg:pl-14'>
+      <aside className='hidden space-y-3 border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pl-14'>
         <Topics topics={topics} />
       </aside>
     </div>
