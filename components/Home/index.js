@@ -1,7 +1,8 @@
+import { Topics } from '../common';
 import Articles from './Articles';
 import Headline from './Headline';
 
-const Home = ({ headline, articles }) => {
+const Home = ({ headline, articles, topics }) => {
   return (
     <div className='flex'>
       <section className='lg:w-9/12'>
@@ -9,9 +10,8 @@ const Home = ({ headline, articles }) => {
         <Articles articles={articles} />
       </section>
 
-      <aside className='hidden border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pt-16 lg:pl-16'>
-        <div>Most Popular</div>
-        <div></div>
+      <aside className='hidden space-y-3 border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pt-16 lg:pl-14'>
+        <Topics topics={topics} />
       </aside>
     </div>
   );

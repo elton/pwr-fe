@@ -2,11 +2,12 @@ import { faker } from '@faker-js/faker';
 import React from 'react';
 import Home from '../components/Home';
 
-const Index = ({ headline, articles }) => {
-  return <Home headline={headline} articles={articles} />;
+const Index = ({ headline, articles, topics }) => {
+  return <Home headline={headline} articles={articles} topics={topics} />;
 };
 
 export async function getStaticProps() {
+  faker.locale = 'zh_CN';
   const unsplash = await fetch(
     'https://api.unsplash.com/photos/random?client_id=FqvDw3sA6HBgIOOF-F5AQTKsRFr5Rb7BoqjHdHm32rw'
   ).then((res) => res.status === 200 && res.json());
@@ -36,10 +37,22 @@ export async function getStaticProps() {
       image: faker.image.image(128, 128),
     });
   }
+
+  let topics = [];
+  for (let i = 0; i < 10; i++) {
+    const topic = {
+      id: faker.datatype.uuid(),
+      name: faker.lorem.word(),
+      count: faker.mersenne.rand(1, 100),
+    };
+    topics.push(topic);
+  }
+  console.log('topics: ', topics);
   return {
     props: {
       headline,
       articles,
+      topics,
     }, // will be passed to the page component as props
   };
 }
