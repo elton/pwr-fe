@@ -3,13 +3,13 @@ import Headline from './Headline';
 
 const Home = ({ headline, articles }) => {
   return (
-    <div className='flex lg:px-5'>
-      <section className='w-9/12'>
+    <div className='flex px-5'>
+      <section className='lg:w-9/12'>
         <Headline headline={headline} />
         <Articles articles={articles} />
       </section>
 
-      <aside className='w-3/12 border-l border-pwr-lightgray lg:pt-16 lg:pl-16'>
+      <aside className='hidden border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pt-16 lg:pl-16'>
         <div>Most Popular</div>
         <div></div>
       </aside>

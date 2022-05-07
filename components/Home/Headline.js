@@ -3,9 +3,9 @@ import { Avatar } from '../common';
 
 const Headline = ({ headline }) => {
   return (
-    <div className='flex lg:pt-16 lg:pr-16'>
+    <div className='flex pt-16 lg:pr-16'>
       <div>
-        <ul className='space-y-4 font-Pathway text-4xl text-pwr-gray'>
+        <ul className='hidden space-y-4 font-Pathway text-4xl text-pwr-gray lg:block'>
           <li className='text-pwr-lightbrown'>01</li>
           <li>02</li>
           <li>03</li>
@@ -19,7 +19,7 @@ const Headline = ({ headline }) => {
           <div className='rounded-md bg-pwr-lightgray px-2'>Golang</div>
         </div>
         <h1 className='mb-4 text-5xl font-semibold'>{headline.title}</h1>
-        <div className='relative mb-2 h-64 overflow-hidden'>
+        <div className='relative -z-10 mb-2 h-64 overflow-hidden'>
           {headline?.image && (
             <Image
               src={headline.image}
