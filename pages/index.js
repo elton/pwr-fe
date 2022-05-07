@@ -1,39 +1,15 @@
 import { faker } from '@faker-js/faker';
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import Home from '../components/Home';
 
 const Index = ({ headline, articles }) => {
-  return (
-    <>
-      <Header />
-      <main className='container mx-auto lg:mt-32'>
-        <Home headline={headline} articles={articles} />
-      </main>
-      <Footer />
-    </>
-  );
+  return <Home headline={headline} articles={articles} />;
 };
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries.
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-
   const unsplash = await fetch(
     'https://api.unsplash.com/photos/random?client_id=FqvDw3sA6HBgIOOF-F5AQTKsRFr5Rb7BoqjHdHm32rw'
   ).then((res) => res.status === 200 && res.json());
-
-  // console.log(
-  //   'unsplash: url:%s, firstname:%s lastname:%s, alt:%s',
-  //   unsplash.urls.regular,
-  //   unsplash.user.first_name,
-  //   unsplash.user.last_name,
-  //   unsplash.description
-  // );
 
   const headline = {
     title: faker.lorem.sentence(Math.round(Math.random() * 15) + 8),
@@ -47,7 +23,6 @@ export async function getStaticProps() {
     date: faker.date.past().toDateString().slice(4),
     avatar: unsplash?.user?.profile_image?.medium || null,
   };
-  // console.log('headline', headline);
 
   let articles = [];
   for (let i = 0; i < 5; i++) {
@@ -58,6 +33,7 @@ export async function getStaticProps() {
       avatar: faker.image.avatar(),
       author: faker.name.findName(),
       date: faker.date.past().toDateString().slice(4),
+      image: faker.image.image(128, 128),
     });
   }
   return {
