@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import React from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Home from '../components/Home';
 
@@ -10,6 +11,7 @@ const Index = ({ headline, articles }) => {
       <main className='container mx-auto lg:mt-32'>
         <Home headline={headline} articles={articles} />
       </main>
+      <Footer />
     </>
   );
 };
