@@ -18,8 +18,8 @@ const Headline = ({ headline }) => {
           <div>Backend</div>
           <div className='rounded-md bg-pwr-lightgray px-2'>Golang</div>
         </div>
-        <h1 className='mb-4 text-5xl font-semibold'>{headline.title}</h1>
-        <div className='relative -z-10 mb-2 h-64 overflow-hidden'>
+        <h1 className='mb-6 text-5xl font-semibold'>{headline.title}</h1>
+        <div className='relative -z-10 mb-1 h-64 overflow-hidden'>
           {headline?.image && (
             <Image
               src={headline.image}
@@ -41,7 +41,7 @@ const Headline = ({ headline }) => {
             Unsplash
           </a>
         </div>
-        <div className='mb-4 text-sm text-pwr-black'>{headline.subtitle}</div>
+        <div className='mb-6 text-pwr-black'>{headline.subtitle}</div>
         <Avatar
           avatar={headline.avatar}
           author={headline.author}

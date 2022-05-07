@@ -24,8 +24,8 @@ const Header = () => {
           content='PWR, Power Ink, 能量墨水, Photography, 摄影, UI Design, UI设计, Web App Development, web应用开发, 小程序开发, App开发'
         />
       </Head>
-      <header className='fixed inset-x-0 top-0 flex items-center bg-white/90 shadow backdrop-blur-md lg:z-10 lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
-        <div className='z-20 mx-auto flex w-full items-center justify-between  py-3 px-5 lg:justify-start lg:p-0'>
+      <header className='fixed inset-x-0 top-0 flex items-center bg-white/90 px-8 shadow backdrop-blur-md lg:z-10 lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
+        <div className='z-20 mx-auto flex w-full items-center justify-between  py-3 lg:justify-start lg:p-0'>
           <div className='h-4 w-36 lg:h-8 lg:w-60'>
             <Image
               loader={myLoader}

@@ -1,28 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { HiArrowSmRight } from 'react-icons/hi';
 import { Avatar } from '../common';
 
 const Articles = ({ articles }) => {
   return (
     <div className='lg:ml-24 lg:pr-16'>
-      <div className='mt-16 mb-6 flex items-center justify-between'>
+      <div className='mt-16 mb-6 flex justify-between'>
         <div className=' text-2xl font-semibold text-pwr-darkblack'>
           Recent Articles
         </div>
-        <div className='rounded-md bg-pwr-lightgray px-2 py-1 text-xs text-pwr-brown'>
-          <Link href='/'>
-            <a>See the full list &gt;</a>
-          </Link>
-        </div>
+        <Link href='/'>
+          <a className='flex items-center space-x-1 text-xs text-pwr-green'>
+            <span>See the full list</span> <HiArrowSmRight />
+          </a>
+        </Link>
       </div>
-      <div className='space-y-6'>
+      <div className='space-y-8'>
         {articles.map((article) => (
           <div key={article.id} className='lg:flex lg:justify-between'>
             <div className='space-y-3 lg:w-4/5 lg:pr-12'>
-              <div className='text-xl text-pwr-black'>{article.title}</div>
-              <div className='text-xs text-pwr-lightbrown'>
-                {article.subtitle}
-              </div>
+              <div className='text-2xl text-pwr-black'>{article.title}</div>
+              <div className='text-pwr-lightbrown'>{article.subtitle}</div>
 
               <Avatar
                 avatar={article.avatar}

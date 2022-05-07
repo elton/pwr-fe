@@ -20,7 +20,7 @@ export async function getStaticProps() {
     subtitle: faker.lorem.sentence(faker.random.numeric(2)),
     author:
       unsplash?.user?.first_name + ' ' + (unsplash?.user?.last_name || ''),
-    date: faker.date.past().toDateString().slice(4),
+    date: faker.date.past().toDateString().slice(4, -4),
     avatar: unsplash?.user?.profile_image?.medium || null,
   };
 
@@ -32,7 +32,7 @@ export async function getStaticProps() {
       subtitle: faker.lorem.sentence(faker.random.numeric(2)),
       avatar: faker.image.avatar(),
       author: faker.name.findName(),
-      date: faker.date.past().toDateString().slice(4),
+      date: faker.date.past().toDateString().slice(4, -4),
       image: faker.image.image(128, 128),
     });
   }

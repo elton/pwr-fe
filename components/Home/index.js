@@ -3,7 +3,7 @@ import Headline from './Headline';
 
 const Home = ({ headline, articles }) => {
   return (
-    <div className='flex px-5'>
+    <div className='flex'>
       <section className='lg:w-9/12'>
         <Headline headline={headline} />
         <Articles articles={articles} />
