@@ -1,11 +1,16 @@
 import { faker } from '@faker-js/faker';
+import Head from 'next/head';
 import Image from 'next/image';
 import { HiOutlineCalendar } from 'react-icons/hi';
 import { Avatar } from '../components/common';
+import Layout, { siteTitle } from '../components/layout';
 
 const Detail = ({ article }) => {
   return (
-    <>
+    <Layout>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <div className='lg:flex lg:items-center lg:justify-between'>
         <div className='mb-8 space-y-4 lg:mb-0 lg:space-y-8 lg:pr-16'>
           <div className='hidden items-center space-x-2 text-xs text-pwr-darkgreen lg:flex'>
@@ -52,7 +57,7 @@ const Detail = ({ article }) => {
       <div className='container mx-auto mt-8 text-pwr-black lg:mt-16 lg:w-3/5'>
         {article.content}
       </div>
-    </>
+    </Layout>
   );
 };
 

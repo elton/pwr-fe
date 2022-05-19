@@ -6,13 +6,12 @@ import { FaGithub } from 'react-icons/fa';
 import { HiOutlineMenu, HiOutlineSun, HiOutlineX } from 'react-icons/hi';
 import myLoader from '../libs/loader';
 
-const Header = () => {
+const Header = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <>
       <Head>
-        <title>PWR - Power Ink 能量墨水</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <link rel='icon' href='/favicon.ico' />
         <meta
@@ -23,6 +22,7 @@ const Header = () => {
           name='keywords'
           content='PWR, Power Ink, 能量墨水, Photography, 摄影, UI Design, UI设计, Web App Development, web应用开发, 小程序开发, App开发'
         />
+        <meta name='og:title' content={title} />
       </Head>
       <header className='fixed inset-x-0 top-0 flex items-center bg-white/90 px-8 shadow backdrop-blur-md lg:z-10 lg:h-32 lg:border-b lg:border-pwr-lightgray lg:px-16 lg:shadow-none'>
         <div className='z-20 mx-auto flex w-full items-center justify-between  py-3 lg:justify-start lg:p-0'>

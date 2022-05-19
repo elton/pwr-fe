@@ -1,30 +1,40 @@
 import { faker } from '@faker-js/faker';
+import Head from 'next/head';
 import React from 'react';
-import Home from '../components/Home';
+import { Topics } from '../components/common';
+import Articles from '../components/Home/Articles';
+import Headline from '../components/Home/Headline';
+import Layout, { siteTitle } from '../components/layout';
 
-const Index = ({ headline, articles, topics }) => {
-  return <Home headline={headline} articles={articles} topics={topics} />;
+const Index = ({ headlines, articles, topics }) => {
+  return (
+    <Layout>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <div className='flex'>
+        <section className='lg:w-9/12'>
+          <Headline headlines={headlines} />
+          <Articles articles={articles} />
+        </section>
+
+        <aside className='hidden space-y-3 border-l border-pwr-lightgray lg:block lg:w-3/12 lg:pl-14'>
+          <Topics topics={topics} />
+        </aside>
+      </div>
+    </Layout>
+  );
 };
 
 export async function getStaticProps() {
   faker.locale = 'zh_CN';
-  const unsplash = await fetch(
-    'https://api.unsplash.com/photos/random?client_id=FqvDw3sA6HBgIOOF-F5AQTKsRFr5Rb7BoqjHdHm32rw'
-  ).then((res) => res.status === 200 && res.json());
 
-  const headline = {
-    title: faker.lorem.sentence(Math.round(Math.random() * 15) + 8),
-    image: unsplash?.urls?.regular || null,
-    url: unsplash?.links?.html || null,
-    width: 1080,
-    height: (unsplash?.height * 1080) / unsplash?.width,
-    description: unsplash?.description || null,
-    subtitle: faker.lorem.sentence(faker.random.numeric(2)),
-    author:
-      unsplash?.user?.first_name + ' ' + (unsplash?.user?.last_name || ''),
-    date: faker.date.past().toDateString().slice(4, -4),
-    avatar: unsplash?.user?.profile_image?.medium || null,
-  };
+  const server_url = process.env.NEXT_PUBLIC_PWR_BE_URL;
+  const headlines = await fetch(server_url + '/headlines?limit=1').then(
+    (res) => res.status === 200 && res.json()
+  );
+
+  console.log('headlines: ', headlines.data);
 
   let articles = [];
   for (let i = 0; i < 5; i++) {
@@ -48,10 +58,10 @@ export async function getStaticProps() {
     };
     topics.push(topic);
   }
-  console.log('topics: ', topics);
+  // console.log('topics: ', topics);
   return {
     props: {
-      headline,
+      headlines: headlines.data,
       articles,
       topics,
     }, // will be passed to the page component as props
