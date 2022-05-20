@@ -9,7 +9,7 @@ import Layout, { siteTitle } from '../components/layout';
 const Index = ({ headlines, articles, topics }) => {
   return (
     <Layout>
-      <Head>
+      <Head>npm install next-redux-wrapper react-redux --save
         <title>{siteTitle}</title>
       </Head>
       <div className='flex'>
